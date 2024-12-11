@@ -2,6 +2,9 @@ package cn.abs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Combination {
 
@@ -11,7 +14,7 @@ public class Combination {
      * arg[n] 排列数的位数
      */
     public static void main(String[] args) {
-        combine(null, new ArrayList<String>(Arrays.asList(args)), 1, 4);
+        combine(null, Arrays.stream(args).distinct().collect(Collectors.toList()), 1, 3);
     }
 
     /**
@@ -20,7 +23,7 @@ public class Combination {
      * @param level         目前位数
      * @param exceptedLevel 组合期待位数
      */
-    public static void combine(StringBuilder stringBuilder, ArrayList<String> list, int level, int exceptedLevel) {
+    public static void combine(StringBuilder stringBuilder, List<String> list, int level, int exceptedLevel) {
         for (int i = 0; i < list.size(); i++) {
             StringBuilder builder = stringBuilder != null ? new StringBuilder(stringBuilder) : new StringBuilder();
             builder.replace(level - 1, level, list.get(i));
