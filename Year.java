@@ -36,8 +36,8 @@ public class Year {
         Integer month = Integer.valueOf(args[1]);
         int odds = Math.floorDiv(month, 2);
         int evens = (Math.floorMod(month, 2) == 0) ? (odds - 1) : odds;
-        int repEvent2OddCount = evens > 2 ? evens - 3 : 0;
-        int repOdd2EventCount = odds > 3 ? odds - 4 : 0;
+        int repEvent2OddCount = evens > 3 ? evens - 3 : 0;
+        int repOdd2EventCount = odds > 4 ? odds - 4 : 0;
         System.out.println(Integer.valueOf(args[2]) + repOdd2EventCount * 30 + (odds - repOdd2EventCount) * 31 + ((evens >= 1 ? (Integer.valueOf(args[0]) % 4 == 0 ? 29 : 28) + repEvent2OddCount * 31 + (evens - 1 - repEvent2OddCount) * 30 : 0)));
     }
 
